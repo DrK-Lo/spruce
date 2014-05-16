@@ -1,0 +1,80 @@
+/data/seqcap/spruce/bwa_pseudo/final_tables/
+
+var_out_588ind_all_v2_COMBINED.table.contig_flt10.bayenv
+var_out_588ind_all_v2_COMBINED.table.contig_flt10.noncoding.bayenv
+var_out_588ind_all_v2_COMBINED.table.contig_flt80.bayenv
+var_out_588ind_all_v2_COMBINED.table.contig_flt80.noncoding.bayenv
+
+var_out_spruce_all_beagle10_p99.tab.bayenv
+var_out_spruce_all_beagle10_p99.tab.noncoding.bayenv
+var_out_spruce_all_beagle80_p99.tab.bayenv
+var_out_spruce_all_beagle80_p99.tab.noncoding.bayenv
+
+spruce_GBS_all.table.contig_flt10.bayenv
+
+screen
+
+./bayenv2 -i /data/seqcap/spruce/bwa_pseudo/final_tables/spruce_GBS_all.table.contig_flt10.bayenv -p 254 -k 100000 -r 9999 > /data/seqcap/spruce/bwa_pseudo/final_tables/bayenv2/spruce_GBS_all.table.contig_flt10.bayenv.covmat
+
+DETACH SCREEN
+
+screen
+
+./bayenv2 -i /data/seqcap/spruce/bwa_pseudo/final_tables/var_out_588ind_all_v2_COMBINED.table.contig_flt10.bayenv -p 253 -k 100000 -r 9999 > /data/seqcap/spruce/bwa_pseudo/final_tables/bayenv2/var_out_588ind_all_v2_COMBINED.table.contig_flt10.bayenv.covmat
+
+DETACH SCREEN
+
+
+
+screen
+
+./bayenv2 -i /data/seqcap/spruce/bwa_pseudo/final_tables/var_out_588ind_all_v2_COMBINED.table.contig_flt10.noncoding.bayenv -p 253 -k 100000 -r 9999 > /data/seqcap/spruce/bwa_pseudo/final_tables/bayenv2/var_out_588ind_all_v2_COMBINED.table.contig_flt10.noncoding.bayenv.covmat
+
+DETACH SCREEN
+
+
+screen
+
+./bayenv2 -i  /data/seqcap/spruce/bwa_pseudo/final_tables/var_out_588ind_all_v2_COMBINED.table.contig_flt80.bayenv  -p 253 -k 100000 -r 9999 > /data/seqcap/spruce/bwa_pseudo/final_tables/bayenv2/var_out_588ind_all_v2_COMBINED.table.contig_flt80.bayenv.covmat
+
+DETACH SCREEN
+
+
+screen
+
+./bayenv2 -i  /data/seqcap/spruce/bwa_pseudo/final_tables/var_out_588ind_all_v2_COMBINED.table.contig_flt80.noncoding.bayenv  -p 253 -k 100000 -r 9999 > /data/seqcap/spruce/bwa_pseudo/final_tables/bayenv2/var_out_588ind_all_v2_COMBINED.table.contig_flt80.noncoding.bayenv.covmat
+
+DETACH SCREEN
+
+
+
+screen
+
+./bayenv2 -i   /data/seqcap/spruce/bwa_pseudo/final_tables/var_out_spruce_all_beagle10_p99.tab.bayenv -p 253 -k 100000 -r 9999 > /data/seqcap/spruce/bwa_pseudo/final_tables/bayenv2/var_out_spruce_all_beagle10_p99.tab.bayenv.covmat
+
+DETACH SCREEN
+
+
+
+screen
+
+./bayenv2 -i   /data/seqcap/spruce/bwa_pseudo/final_tables/var_out_spruce_all_beagle10_p99.tab.noncoding.bayenv -p 253 -k 100000 -r 9999 > /data/seqcap/spruce/bwa_pseudo/final_tables/bayenv2/var_out_spruce_all_beagle10_p99.tab.noncoding.bayenv.covmat
+
+DETACH SCREEN
+
+
+
+screen
+
+./bayenv2 -i  /data/seqcap/spruce/bwa_pseudo/final_tables/var_out_spruce_all_beagle80_p99.tab.bayenv  -p 253 -k 100000 -r 9999 > /data/seqcap/spruce/bwa_pseudo/final_tables/bayenv2/var_out_spruce_all_beagle80_p99.tab.bayenv.covmat
+
+DETACH SCREEN
+
+
+
+screen
+
+./bayenv2 -i  /data/seqcap/spruce/bwa_pseudo/final_tables/var_out_spruce_all_beagle80_p99.tab.noncoding.bayenv  -p 253 -k 100000 -r 9999 > /data/seqcap/spruce/bwa_pseudo/final_tables/bayenv2/var_out_spruce_all_beagle80_p99.tab.noncoding.bayenv.covmat
+
+DETACH SCREEN
+

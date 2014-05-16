@@ -1,0 +1,10 @@
+fileBaseName  MinimumData Imputation SNPs Ascertainment
+var_out_588ind_all_v2_COMBINED.table.contig_flt10 "10%" "No" "all" "seqcap"
+var_out_588ind_all_v2_COMBINED.table.contig_flt80 "80%" "No" "all" "seqcap"
+var_out_588ind_all_v2_COMBINED.table.contig_flt10.noncoding "10%" "No" "noncoding" "seqcap"
+var_out_588ind_all_v2_COMBINED.table.contig_flt80.noncoding "80%" "No" "noncoding" "seqcap"
+var_out_spruce_all_beagle10_p99.tab "10%" "Yes" "all" "seqcap"
+var_out_spruce_all_beagle10_p99.tab.noncoding "10%" "Yes" "noncoding" "seqcap"
+var_out_spruce_all_beagle80_p99.tab "80%" "Yes" "all" "seqcap"
+var_out_spruce_all_beagle80_p99.tab.noncoding "80%" "Yes" "noncoding" "seqcap"
+spruce_GBS_all.table.contig_flt10 "10%" "No" "noncoding" "GBS"
