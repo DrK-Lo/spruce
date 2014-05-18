@@ -25,7 +25,10 @@ covpath<- "~/SpruceBayenv2/var_out_588ind_all_v2_COMBINED.table.contig_flt80.non
 #ROGUE covpath <- "/data/seqcap/spruce/bwa_pseudo/final_tables/bayenv2/var_out_588ind_all_v2_COMBINED.table.contig_flt80.noncoding.bayenv.covmatED.goodPops"
   #MCMC 85500
   #this matrix is edited to match environment
-SNPnames <- "~/SpruceBayenv2/var_out_spruce_all_beagle10_p99.tab.bayenv.loci"
+
+SNPnames1 <- matrix(scan("~/SpruceBayenv2/var_out_spruce_all_beagle10_p99.tab.bayenv.loci", skip=(startSNP-1), nlines=(endSNP-startSNP+1), what="character"), ncol=2, byrow=TRUE)
+	#this takes about 10 minutes to read in
+SNPnames<- SNPnames1[,2]
 #ROGUE SNPnames<- "/data/seqcap/spruce/bwa_pseudo/final_tables/var_out_spruce_all_beagle10_p99.tab.bayenv.loci"
 
 PopsMissingData <- "~/SpruceBayenv2/envifiles/seqcap.bayenv.BF.envi.linesRemoved"
@@ -43,24 +46,34 @@ missingPops<- scan(PopsMissingData)
 npopsUNED<- length(scan(SNPpath, nlines=1))
 
 OUTFILE1<- paste("var_out_spruce_all_beagle10_p99.tab.bayenv.envi1.OUT",groupnum, sep="")
-write(NULL, paste(OUTFILE1,".bf",sep=""), append=FALSE)
-write(NULL, paste(OUTFILE1,".xtx",sep=""), append=FALSE)
+#write(NULL, paste(OUTFILE1,".bf",sep=""), append=FALSE)
+#write(NULL, paste(OUTFILE1,".xtx",sep=""), append=FALSE)
 
 OUTFILE2<- paste("var_out_spruce_all_beagle10_p99.tab.bayenv.envi2.OUT",groupnum, sep="")
-write(NULL, paste(OUTFILE2,".bf",sep=""), append=FALSE)
-write(NULL, paste(OUTFILE2,".xtx",sep=""), append=FALSE)
+#write(NULL, paste(OUTFILE2,".bf",sep=""), append=FALSE)
+#write(NULL, paste(OUTFILE2,".xtx",sep=""), append=FALSE)
 
-for (i in startSNP:endSNP){
-  skp <- i*2-2
+SNPdata1<- matrix(scan(SNPpath, skip=(startSNP-1), nlines=2*(endSNP-startSNP+1), quiet=TRUE), byrow=TRUE, ncol=npopsUNED)
+
+if (file.exists(paste(OUTFILE2,".xtx",sep=""))){
+	o <- read.table(paste(OUTFILE2,".xtx",sep=""))
+	vect<- which((SNPnames %in% o$V1)==FALSE)
+}else{
+		vect<- 1:(endSNP-startSNP+1)
+}
+
+
+for (i in vect){
+	
+	print("____________________________________________________")
+	print(i+startSNP-1))
   
-  thisSNPname <- scan(SNPnames, what="character", skip=(i-1), 
-                      nlines=1, quiet=TRUE)[2]
+  thisSNPname <- SNPnames[i]
   
   # get SNP data
-  SNPdata1<- matrix(scan(SNPpath, skip=skp, nlines=2,
-                        quiet=TRUE), byrow=TRUE, ncol=npopsUNED)
+	SNPdata2<- SNPdata1[(i*2-1):(i*2),]
     #note that not all populations have environmental data
-  SNPdata<-SNPdata1[,-missingPops]
+  SNPdata<-SNPdata2[,-missingPops]
   
   # write SNP file
   write.table(SNPdata, file=thisSNPname, sep="\t", eol="\t\n",
